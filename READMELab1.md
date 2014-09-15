@@ -25,7 +25,7 @@ My addition and subraction code worked well, but I ran into problems with the mu
 ###Testing Methodology/results:
 To test my code, I used the given test case strings with their known results to test my code
 
-###For the required functionality, which tested addition, subtraction, and clear (which stored 0x00), I used the given test case 0x11, 0x11, 0x11, 0x11, 0x11, 0x44, 0x22, 0x22, 0x22, 0x11, 0xCC, 0x55 into my calculator. The stored result was 0x22, 0x33, 0x00, 0x00, 0xCC beginning in memory location 0x0200 which was correct for the given solution
+For the required functionality, which tested addition, subtraction, and clear (which stored 0x00), I used the given test case 0x11, 0x11, 0x11, 0x11, 0x11, 0x44, 0x22, 0x22, 0x22, 0x11, 0xCC, 0x55 into my calculator. The stored result was 0x22, 0x33, 0x00, 0x00, 0xCC beginning in memory location 0x0200 which was correct for the given solution
 
 The following two test cases, which tested the A and B functionality (B functionality tested the calculators ability to store 0xFF when an answer was larger than 0xFF, and A functionality tested the calculators ability to multiply) were then used
 
@@ -37,9 +37,11 @@ Result: 0x44, 0x11, 0x88, 0x00, 0x00, 0x00, 0xff, 0x00, 0xff, 0x00, 0x00, 0xff
 
 My program successfully handled the required operations for the required, B, and A functionality.
 
-###Observations/Conclusions: In conclusion of the lab, I was successful in creating an assembly program that handled addition, subtraction, ending the operation, storing 0x00 when clear was the operation, and storing 0xFF when an answer greater than 0xFF happened.
+###Observations/Conclusions: 
+In conclusion of the lab, I was successful in creating an assembly program that handled addition, subtraction, ending the operation, storing 0x00 when clear was the operation, and storing 0xFF when an answer greater than 0xFF happened.
 
-###Documentation: I looked at Dr. Coulston's example code for an idea how to store the complete operation string and then increment to the next stored byte in the operation string. 
+###Documentation: 
+I looked at Dr. Coulston's example code for an idea how to store the complete operation string and then increment to the next stored byte in the operation string. 
 
 
 
