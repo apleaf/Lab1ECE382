@@ -5,7 +5,7 @@
 ;Lab 1 Calculator
 ;14 September 2014
 ;-------------------------------------------------------------------------------
-            .cdecls C,LIST,"msp430.h"       ; Include device header file
+            .cdecls C,LIST,"msp430.h"       ;Include device header file
 
 ;-------------------------------------------------------------------------------
             .text

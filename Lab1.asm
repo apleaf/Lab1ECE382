@@ -5,10 +5,13 @@
 ;Lab 1 Calculator
 ;14 September 2014
 ;-------------------------------------------------------------------------------
-            .cdecls C,LIST,"msp430.h"       ;Include device header file
-
-;-------------------------------------------------------------------------------
-            .text
+	.cdecls C,LIST,"msp430.h"	; BOILERPLATE	Include device header file
+ 	.text						; BOILERPLATE	Assemble into program memory
+	.retain						; BOILERPLATE	Override ELF conditional linking and retain current section
+	.retainrefs					; BOILERPLATE	Retain any sections that have references to current section
+	.global RESET				; BOILERPLATE	Project -> Properties and select the following in the pop-up
+								; Build -> Linker -> Advanced -> Symbol Management
+								;    enter main into the Specify program entry point... text box
 
 
 function:   .byte 0x11, 0x11, 0x11, 0x11, 0x11, 0x44, 0x22, 0x22, 0x22, 0x11, 0xCC, 0x55; input function
@@ -18,18 +21,16 @@ mul:        .byte 0x33
 clr:        .byte 0x44
 end:        .byte 0x55
 big:        .byte 0xFF
-            .retain
-            .data
-.space
-result:     .space 50																    ;stored space in memory for anwers
 
-                                             ; and retain current section
-            .retainrefs                     ; Additionally retain any sections
-                                                   ; that have references to current
                                             ; section
+	.data
+	.bss	result, 0x40			; 40 (hex) free bytes in data memory, access the the "result" label
+	.text
+
+
 ;-------------------------------------------------------------------------------
-RESET       mov.w   #__STACK_END,SP         ; Initialize stackpointer
-StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
+RESET				mov.w   #__STACK_END,SP         ; Initialize stackpointer
+StopWDT				mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 
 ;-------------------------------------------------------------------------------
            			mov.w #function, r4        ;input first values into registers to use for functions
